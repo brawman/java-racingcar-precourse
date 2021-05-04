@@ -1,7 +1,6 @@
 package com.nextstep.racingcar;
 
 public class CarController {
-
 	public final static int MOVE_DECISION_VALUE = 3;
 
 	private static boolean isMoveable(int number) {
