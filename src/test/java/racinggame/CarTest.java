@@ -21,4 +21,21 @@ public class CarTest {
 		car.move();
 		assertThat(car.distance()).isEqualTo(1);
 	}
+
+	@Test
+	@DisplayName("이동 거리 비교")
+	void compareDistance() {
+		Car car1 = new Car("test1", 5);
+		Car car2 = new Car("test2", 3);
+
+		assertThat(car1.compareDistance(car2)).isEqualTo(1);
+
+		Car car3 = new Car("test3", 8);
+
+		assertThat(car1.compareDistance(car3)).isEqualTo(-1);
+
+		Car car4 = new Car("test4", 5);
+
+		assertThat(car1.compareDistance(car4)).isEqualTo(0);
+	}
 }
