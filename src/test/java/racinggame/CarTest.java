@@ -13,4 +13,12 @@ public class CarTest {
 
 		assertThatThrownBy(() -> new Car("over6_")).isExactlyInstanceOf(IllegalArgumentException.class);
 	}
+
+	@Test
+	@DisplayName("자동차 전진")
+	void carMove() {
+		Car car = new Car("test");
+		car.move();
+		assertThat(car.distance()).isEqualTo(1);
+	}
 }
