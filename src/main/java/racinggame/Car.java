@@ -16,8 +16,10 @@ public class Car implements Comparable<Car> {
 		this.distance = distance;
 	}
 
-	public void move() {
-		this.distance += 1;
+	public void move(MoveStrategy moveStrategy) {
+		if(moveStrategy.isMovable()) {
+			this.distance += 1;
+		}
 	}
 
 	public int distance() {
