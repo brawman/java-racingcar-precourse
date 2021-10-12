@@ -7,8 +7,14 @@ import java.util.List;
 
 public class Cars {
 	private final List<Car> cars;
+	private final NumberGenerator numberGenerator;
 
 	public Cars(List<Car> cars) {
+		this(new RandomNumberGenerator(), cars);
+	}
+
+	public Cars(NumberGenerator numberGenerator, List<Car> cars) {
+		this.numberGenerator = numberGenerator;
 		this.cars = cars;
 	}
 
@@ -27,5 +33,11 @@ public class Cars {
 		}
 		List<Car> winners = sortedCars.subList(0, index + 1);
 		return winners;
+	}
+
+	public void play() {
+		for (Car car : this.cars) {
+			car.move(new MoveStrategy(numberGenerator.generate()));
+		}
 	}
 }
