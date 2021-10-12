@@ -28,10 +28,10 @@ public class Cars {
 		List<Car> sortedCars = this.sortByReverseOrder(this.cars);
 		Car winner = sortedCars.get(0);
 		int index = 0;
-		while (sortedCars.get(index) == winner) {
+		while (sortedCars.get(index).equals(winner)) {
 			index += 1;
 		}
-		List<Car> winners = sortedCars.subList(0, index + 1);
+		List<Car> winners = sortedCars.subList(0, index);
 		return winners;
 	}
 
@@ -39,5 +39,9 @@ public class Cars {
 		for (Car car : this.cars) {
 			car.move(new MoveStrategy(numberGenerator.generate()));
 		}
+	}
+
+	public List<Car> cars() {
+		return this.cars;
 	}
 }

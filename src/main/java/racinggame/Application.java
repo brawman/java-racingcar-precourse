@@ -1,7 +1,27 @@
 package racinggame;
 
 public class Application {
-    public static void main(String[] args) {
-        // TODO 자동차 경주 게임 구현
-    }
+	public static void main(String[] args) {
+		RacingGame game = null;
+		do {
+			game = createGame();
+		} while (game == null);
+		RacingGameUI.drawGameResultMessage();
+		while (!game.isEnd()) {
+			game.play();
+			RacingGameUI.drawGame(game.cars());
+		}
+		RacingGameUI.drawWinner(game.gameWinners());
+	}
+
+	private static RacingGame createGame() {
+		RacingGame game = null;
+		try {
+			game = new RacingGame(CarGenerator.generate(RacingGameUI.carNames()),
+				Integer.parseInt(RacingGameUI.tryCount()));
+		} catch (IllegalArgumentException exception) {
+			System.out.println("[ERROR]" + exception.getMessage());
+		}
+		return game;
+	}
 }

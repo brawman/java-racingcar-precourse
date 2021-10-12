@@ -1,5 +1,7 @@
 package racinggame;
 
+import java.util.Objects;
+
 public class Car implements Comparable<Car> {
 	private final String name;
 	private int distance;
@@ -17,7 +19,7 @@ public class Car implements Comparable<Car> {
 	}
 
 	public void move(MoveStrategy moveStrategy) {
-		if(moveStrategy.isMovable()) {
+		if (moveStrategy.isMovable()) {
 			this.distance += 1;
 		}
 	}
@@ -29,5 +31,25 @@ public class Car implements Comparable<Car> {
 	@Override
 	public int compareTo(Car other) {
 		return this.distance - other.distance;
+	}
+
+	@Override
+	public String toString() {
+		return name;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass())
+			return false;
+		Car car = (Car)o;
+		return distance == car.distance;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(distance);
 	}
 }
