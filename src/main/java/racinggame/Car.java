@@ -1,6 +1,6 @@
 package racinggame;
 
-public class Car {
+public class Car implements Comparable<Car> {
 	private final String name;
 	private int distance;
 
@@ -24,7 +24,8 @@ public class Car {
 		return this.distance;
 	}
 
-	public int compareDistance(Car other) {
-		return Integer.compare(this.distance, other.distance);
+	@Override
+	public int compareTo(Car other) {
+		return this.distance - other.distance;
 	}
 }
