@@ -1,47 +1,36 @@
 package racinggame;
 
-import java.util.Objects;
-
 public class Car implements Comparable<Car> {
-	public static final String INVALID_NAME_LENGTH = "은 1 ~ 5 사이즈의 길이가 아닙니다.";
-	private final String name;
-	private int distance;
+	private CarName name;
+	private CarMileage mileage;
 
 	public Car(String name) {
 		this(name, 0);
 	}
 
-	public Car(String name, int distance) {
-		validate(name);
-		this.name = name;
-		this.distance = distance;
-	}
-
-	private void validate(String name) {
-		if (name.length() < RacingGameRule.MINIMUM_OF_NAME_LENGTH
-			|| name.length() > RacingGameRule.MAXIMUM_OF_NAME_LENGTH) {
-			throw new IllegalArgumentException(name + INVALID_NAME_LENGTH);
-		}
+	public Car(String name, int mileage) {
+		this.name = new CarName(name);
+		this.mileage = new CarMileage(mileage);
 	}
 
 	public void move(MoveStrategy moveStrategy) {
 		if (moveStrategy.isMovable()) {
-			this.distance += 1;
+			this.mileage.increase();
 		}
 	}
 
 	public int distance() {
-		return this.distance;
+		return this.mileage.mileage();
 	}
 
 	@Override
 	public int compareTo(Car other) {
-		return this.distance - other.distance;
+		return this.mileage.compareTo(other.mileage);
 	}
 
 	@Override
 	public String toString() {
-		return name;
+		return name.toString();
 	}
 
 	@Override
@@ -51,11 +40,11 @@ public class Car implements Comparable<Car> {
 		if (o == null || getClass() != o.getClass())
 			return false;
 		Car car = (Car)o;
-		return distance == car.distance;
+		return this.mileage.equals(car.mileage);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(distance);
+		return this.mileage.hashCode();
 	}
 }

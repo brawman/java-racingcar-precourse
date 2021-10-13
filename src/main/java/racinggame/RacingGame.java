@@ -4,24 +4,20 @@ import java.util.List;
 
 public class RacingGame {
 	private final Cars cars;
-	private int tryCount;
+	private TryCount tryCount;
 
 	public RacingGame(List<Car> cars, int tryCount) {
 		this.cars = new Cars(cars);
-		this.tryCount = tryCount;
-	}
-
-	private void decreaseTryCount() {
-		this.tryCount -= 1;
+		this.tryCount = new TryCount(tryCount);
 	}
 
 	public void play() {
 		this.cars.play();
-		this.decreaseTryCount();
+		this.tryCount.spend();
 	}
 
 	public boolean isEnd() {
-		return this.tryCount == 0;
+		return this.tryCount.empty();
 	}
 
 	public List<Car> gameWinners() {
