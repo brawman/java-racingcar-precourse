@@ -24,13 +24,18 @@ public class Cars {
 		return copyList;
 	}
 
-	public List<Car> winners() {
-		List<Car> sortedCars = this.sortByReverseOrder(this.cars);
-		Car winner = sortedCars.get(0);
+	private int findLastIndex(List<Car> sortedCars, Car winner) {
 		int index = 0;
 		while (sortedCars.get(index).equals(winner)) {
 			index += 1;
 		}
+		return index;
+	}
+
+	public List<Car> winners() {
+		List<Car> sortedCars = this.sortByReverseOrder(this.cars);
+		Car winner = sortedCars.get(0);
+		int index = findLastIndex(sortedCars, winner);
 		List<Car> winners = sortedCars.subList(0, index);
 		return winners;
 	}
