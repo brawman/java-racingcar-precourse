@@ -11,9 +11,13 @@ public class RacingGame {
 		this.tryCount = tryCount;
 	}
 
+	private void decreaseTryCount() {
+		this.tryCount -= 1;
+	}
+
 	public void play() {
 		this.cars.play();
-		this.tryCount -= 1;
+		this.decreaseTryCount();
 	}
 
 	public boolean isEnd() {

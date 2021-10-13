@@ -3,6 +3,7 @@ package racinggame;
 import java.util.Objects;
 
 public class Car implements Comparable<Car> {
+	public static final String INVALID_NAME_LENGTH = "은 1 ~ 5 사이즈의 길이가 아닙니다.";
 	private final String name;
 	private int distance;
 
@@ -11,11 +12,16 @@ public class Car implements Comparable<Car> {
 	}
 
 	public Car(String name, int distance) {
-		if (name.length() < 1 || name.length() > 5) {
-			throw new IllegalArgumentException(name + "은 1 ~ 5 사이즈의 길이가 아닙니다.");
-		}
+		validate(name);
 		this.name = name;
 		this.distance = distance;
+	}
+
+	private void validate(String name) {
+		if (name.length() < RacingGameRule.MINIMUM_OF_NAME_LENGTH
+			|| name.length() > RacingGameRule.MAXIMUM_OF_NAME_LENGTH) {
+			throw new IllegalArgumentException(name + INVALID_NAME_LENGTH);
+		}
 	}
 
 	public void move(MoveStrategy moveStrategy) {

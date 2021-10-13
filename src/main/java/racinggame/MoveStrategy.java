@@ -8,6 +8,7 @@ public class MoveStrategy {
 	}
 
 	public boolean isMovable() {
-		return this.number >= 4 && this.number <= 9;
+		return this.number >= RacingGameRule.MINIMUM_OF_MOVABLE_NUMBER
+			&& this.number <= RacingGameRule.MAXIMUM_OF_MOVABLE_NUMBER;
 	}
 }
