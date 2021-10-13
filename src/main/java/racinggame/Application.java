@@ -1,5 +1,9 @@
 package racinggame;
 
+import racinggame.model.RacingGame;
+import racinggame.ui.RacingGameUI;
+import racinggame.utils.CarGenerator;
+
 public class Application {
 	public static void main(String[] args) {
 		RacingGame game = null;

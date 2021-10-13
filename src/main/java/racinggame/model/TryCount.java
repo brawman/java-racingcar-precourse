@@ -1,4 +1,4 @@
-package racinggame;
+package racinggame.model;
 
 public class TryCount {
 	public static final String ILVALID_TRY_COUNT = "횟수가 0보다 작을 수 없습니다.";

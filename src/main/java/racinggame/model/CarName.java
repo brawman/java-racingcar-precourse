@@ -1,4 +1,4 @@
-package racinggame;
+package racinggame.model;
 
 public class CarName {
 	public static final String INVALID_NAME_LENGTH = "은 1 ~ 5 사이즈의 길이가 아닙니다.";

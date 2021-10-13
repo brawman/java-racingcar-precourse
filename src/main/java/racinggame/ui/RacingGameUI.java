@@ -1,8 +1,9 @@
-package racinggame;
+package racinggame.ui;
 
 import java.util.List;
 
 import nextstep.utils.Console;
+import racinggame.model.Car;
 
 public class RacingGameUI {
 	public static final String QUESTION_OF_CAR_NAMES = "경주할자동차이름을입력하세요.(이름은쉼표(,)기준으로구분)";

@@ -1,7 +1,9 @@
-package racinggame;
+package racinggame.utils;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import racinggame.model.Car;
 
 public class CarGenerator {
 	public static final String REGEX = ",";

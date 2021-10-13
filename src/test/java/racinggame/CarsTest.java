@@ -9,6 +9,9 @@ import java.util.Queue;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import racinggame.model.Car;
+import racinggame.model.Cars;
+
 public class CarsTest {
 	@Test
 	@DisplayName("우승자 찾기")

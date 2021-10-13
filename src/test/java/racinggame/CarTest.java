@@ -5,6 +5,9 @@ import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import racinggame.model.Car;
+import racinggame.model.MoveStrategy;
+
 public class CarTest {
 	@Test
 	@DisplayName("자동차의 이름은 5자 이하")
